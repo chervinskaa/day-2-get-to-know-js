@@ -48,6 +48,7 @@ form.addEventListener("submit", function (event) {
     if (isNameValid && isEmailValid && isPasswordValid) {
         resultMessage.textContent = "Форма успішно відправлена!";
         resultMessage.style.color = "green";
+        form.reset();
     } else {
         resultMessage.textContent = "Будь ласка, перевірте введені дані";
         resultMessage.style.color = "red";

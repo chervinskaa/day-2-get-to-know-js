@@ -1,0 +1,76 @@
+body {
+    background: #fff3ff;
+}
+
+.header-container h1 {
+    margin-top: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #53424c;
+}
+
+.weekdays-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+/* прибрати скролл */
+.weekdays-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.weekdays-list {
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    min-width: max-content;
+    min-width: 100%;
+}
+
+.weekdays-list li {
+   flex: 0 0 calc((100% - 7 * 10px) / 7);
+    width: 60px;
+    height: 50px;
+    background-color: #53424c;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: default;
+    user-select: none;
+}
+
+.task-container {
+    padding-left: 5%;
+}
+
+.task-container h2 {
+    color: #53424c;
+
+}
+
+.parent-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#add-task-btn {
+    background-color: hwb(324 62% 3%);
+    color: white;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    position: fixed;
+    bottom: 3%;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
