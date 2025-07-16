@@ -32,7 +32,7 @@ body {
 }
 
 .weekdays-list li {
-   flex: 0 0 calc((100% - 7 * 10px) / 7);
+    flex: 0 0 calc((100% - 7 * 10px) / 7);
     width: 60px;
     height: 50px;
     background-color: #53424c;
@@ -73,4 +73,54 @@ body {
     border: none;
     border-radius: 50%;
     cursor: pointer;
+}
+
+/* modal window */
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    margin: 0 auto;
+    top: 25%;
+    left: 0;
+    right: 0;
+    width: 90%;
+    height: 10%;
+    background-color: rgba(247, 158, 212, 0.452);
+    border-radius: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    pointer-events: none;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+#task-form {
+    padding: 1rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#task-form button {
+    height: 30px;
+    width: 75px;
+    border-radius: 20px;
+    margin: 0 auto;
+    display: block;
+    background-color: hwb(324 62% 3%);
+    color: #53424c;
+    font-weight: bold;
+}
+
+#task {
+    border-radius: 20px;
+    height: 1rem;
+    text-align: center;
 }

@@ -55,11 +55,27 @@ weekdaysList.addEventListener("click", function (event) {
             block: "nearest"
         });
     }
-    // відкрити завдання на день
 });
 
 
-// Карточки завдань
+// Відкрити вікно щоб додати завдання
+const modal = document.getElementById("modal");
+const addBtn = document.getElementById("add-task-btn");
+const taskForm = document.getElementById("task-form");
 
-const container = document.getElementById("tasks-card");
+addBtn.addEventListener("click", function () {
+    modal.classList.add("show");
+});
 
+
+window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+        modal.classList.remove("show");
+    }
+});
+
+
+taskForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    // Тут можна додати код для збереження завдання
+});

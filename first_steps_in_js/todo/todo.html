@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="todo.css">
+</head>
+
+<body>
+  <button id="show-form-btn">Додати завдання</button>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-modal">&times;</span>
+      <form id="task-form">
+        <label for="task">Завдання:</label>
+        <input type="text" id="task" name="task" placeholder="Введіть завдання">
+        <button type="submit">Зберегти</button>
+      </form>
+    </div>
+  </div>
+
+
+  <script src="todo.js"></script>
+</body>
+
+</html>
