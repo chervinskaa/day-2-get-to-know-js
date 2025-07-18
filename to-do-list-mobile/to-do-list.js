@@ -62,6 +62,7 @@ weekdaysList.addEventListener("click", function (event) {
 const modal = document.getElementById("modal");
 const addBtn = document.getElementById("add-task-btn");
 const taskForm = document.getElementById("task-form");
+const modalContent = document.getElementById("modal-content");
 
 addBtn.addEventListener("click", function () {
     modal.classList.add("show");
