@@ -78,5 +78,37 @@ window.addEventListener("click", function (event) {
 
 taskForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    // Тут можна додати код для збереження завдання
+
+    const taskInput = document.getElementById("task");
+    const taskText = taskInput.value.trim();
+
+
+    if (taskText === "") return;
+
+    const li = document.createElement("li");
+    li.classList.add("task-item");
+    li.textContent = taskText;
+
+    const deleteBtn = document.createElement("button");
+    const img = document.createElement("img");
+    img.src = "sources/icons8-delete-button-40.png";
+    img.alt = "Видалити";
+    img.width = 30;
+    img.height = 30;
+    deleteBtn.appendChild(img);
+
+   deleteBtn.addEventListener("click", () => {
+    li.classList.add("delete-animation");
+    setTimeout(() => {
+        li.remove();
+    }, 400);
+});
+
+
+    li.appendChild(deleteBtn);
+
+    const taskList = document.getElementById("task-list");
+    taskList.appendChild(li);
+
+    taskInput.value = "";
 });
