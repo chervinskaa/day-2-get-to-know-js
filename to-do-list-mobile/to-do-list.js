@@ -47,6 +47,22 @@ for (let i = 0; i < 30; i++) {
 let selectedDay = null;
 let tasksByDay = {};
 
+// Функція для збереження у localStorage
+function saveTasks() {
+    localStorage.setItem("tasksByDay", JSON.stringify(tasksByDay));
+}
+
+// Функція для завантаження завдань з localStorage
+function loadTasks() {
+    const savedTasks = localStorage.getItem("tasksByDay");
+    if (savedTasks) {
+        tasksByDay = JSON.parse(savedTasks);
+    }
+}
+
+// Завантажуємо завдання при старті
+loadTasks();
+
 // Обробка кліку на дні тижня
 const allDays = weekdaysList.querySelectorAll('li');
 weekdaysList.addEventListener("click", function (event) {
@@ -67,6 +83,36 @@ weekdaysList.addEventListener("click", function (event) {
         updateTaskListForSelectedDay();
     }
 });
+
+// Якщо є завдання для сьогоднішнього дня, відразу вибираємо його
+selectedDay = formatDate(today);
+
+// Підсвічуємо сьогоднішній день (або перший день з списку)
+let dayFound = false;
+allDays.forEach(day => {
+    if (day.dataset.date === selectedDay) {
+        day.style.backgroundColor = "hsl(324, 87%, 80%)";
+        day.style.color = "#53424c";
+        day.scrollIntoView({
+            behavior: "smooth",
+            inline: "center",
+            block: "nearest"
+        });
+        dayFound = true;
+    } else {
+        day.style.backgroundColor = "#53424c";
+        day.style.color = "white";
+    }
+});
+
+// Якщо сьогоднішній день не знайшовся підсвічуємо перший день
+if (!dayFound && allDays.length > 0) {
+    selectedDay = allDays[0].dataset.date;
+    allDays[0].style.backgroundColor = "hsl(324, 87%, 80%)";
+    allDays[0].style.color = "#53424c";
+}
+
+updateTaskListForSelectedDay();
 
 // Оновлення списку завдань
 function updateTaskListForSelectedDay() {
@@ -139,6 +185,8 @@ taskForm.addEventListener("submit", function (event) {
         tasksByDay[selectedDay] = [];
     }
     tasksByDay[selectedDay].push(taskText);
+
+    saveTasks();
 
     taskInput.value = "";
     modal.classList.remove("show");
